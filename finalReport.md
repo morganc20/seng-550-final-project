@@ -116,6 +116,19 @@ The experiment process for the Random Forest model entailed creating a binary ta
 
 ### Performance metrics - accuracy, precision, recall, F-score etc.
 Everyone explains their model
+
+#### Random Forest Regression
+
+Below are the performance metrics of our Random Forest model:
+
+```
+Test AUC: 0.7386457473162675
+Test Accuracy: 0.8917525773195877
+Test Precision: 0.7952226591561271
+Test Recall: 0.8917525773195877
+Test F1 Score: 0.8407258630860418
+```
+
 ## Results
 ### Key findings in your exploratory data analysis and prediction. If you are trying out multiple algorithms, your results will compare them. How did you diagnose your ML model?
 Max
