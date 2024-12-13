@@ -2,16 +2,21 @@
 
 ## Preamble
 ### Description of team member contribution
+
+Contribution:
 *Morgan - 25%*
+
 Contribution:
 *Ayo - 25%*
+
 Contribution:
 *Carter - 25%*
+
 Contribution:
 *Max - 25%*
-Contribution:
 
 ## Abstract
+### Introduction
 ### Problem
 Max
 What is the problem?
@@ -36,6 +41,24 @@ Max
 
 ### Main Findings
 Everyone explain the findings of their model.
+
+We are proposing a multi-model solution, where we each will select a machine learning classification model and compare them against each other to see which is the most effective algorithm. 
+
+Below are our main findings of each model:
+
+#### Random Forest Regression
+
+Random Forest Regression is a supervised ML algorithm that uses decision trees to predict target variables. Generally speaking, it involves selecting subsets of training data at random and making smaller tress from there. The smaller models are then combined to output a singular prediction value.
+
+Pros: 
+- Not as prone to overfitting
+- Computationally efficient
+- Needs fewer fitting parameters
+
+Cons:
+- Computationally complex
+- Not ideal for small datasets
+- High memory usage
 
 
 ## Methodology
