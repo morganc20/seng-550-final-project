@@ -41,7 +41,37 @@ Everyone explain the findings of their model.
 ## Methodology
 
 ### Exploration of data features and refinement of feature space
-Morgan - General explanation of the dataset
+The dataset our group chose for exploration and analysis was the Amazon reviews dataset. More specifically, we used the Amazon Reviews 2023 dataset, which is based off data from May 1996 to September 2023. Below are some general details regarding the dataset.
+
+| Year | #Review | #User | #Item | #R_Token | #M_Token | #Domain| Timespan |
+|------|---------|-------|-------|----------|----------|--------|----------|
+| 2023 | 571.54M |54.51M |48.19M | 30.14B   | 30.78B   |   33   | May'96 - Sep'23 |
+
+The dataset can be found and accessed at: https://amazon-reviews-2023.github.io
+
+Additionally, each review follows the following object structure:
+
+```
+{
+  "sort_timestamp": 1634275259292,
+  "rating": 3.0,
+  "helpful_votes": 0,
+  "title": "Meh",
+  "text": "These were lightweight and soft but much too small for my liking. I would have preferred two of these together to make one loc. For that reason I will not be repurchasing.",
+  "images": [
+    {
+      "small_image_url": "https://m.media-amazon.com/images/I/81FN4c0VHzL._SL256_.jpg",
+      "medium_image_url": "https://m.media-amazon.com/images/I/81FN4c0VHzL._SL800_.jpg",
+      "large_image_url": "https://m.media-amazon.com/images/I/81FN4c0VHzL._SL1600_.jpg",
+      "attachment_type": "IMAGE"
+    }
+  ],
+  "asin": "B088SZDGXG",
+  "verified_purchase": true,
+  "parent_asin": "B08BBQ29N5",
+  "user_id": "AEYORY2AVPMCPDV57CE337YU5LXA"
+}
+```
 
 Everyone explain how they refined feature space for their model
 ### Experiment setup
