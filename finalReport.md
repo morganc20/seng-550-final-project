@@ -112,6 +112,8 @@ Everyone does their model
 
 #### Random Forest Regression
 
+The experiment process for the Random Forest model entailed creating a binary target variable from the ratings field, processing the relevent feature columns (text and title), aggregating the data together, defining the classifier and pipeline, splitting the dataset for training/test/cross-validation, training the model, making predictions using the model and then finally evaluating the model's performance against specified metrics.
+
 ### Performance metrics - accuracy, precision, recall, F-score etc.
 Everyone explains their model
 ## Results
