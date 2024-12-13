@@ -97,6 +97,11 @@ Additionally, each review follows the following object structure:
 ```
 
 Everyone explain how they refined feature space for their model
+
+#### Random Forest Regression
+
+In the Random Forest Regression model, the feature space was refined to off the text and title fields, and used the rating field as a binary target variable (label). With regard to the text and title fields, each field was tokenized, common words were filtered out of the data and the resulting words were mapped in numerical vectors based off of importance. The end results of both fields were then merged together and used in the model.
+
 ### Experiment setup
 Ayo
 
@@ -104,6 +109,9 @@ Ayo
 Carter
 ### Experiment process
 Everyone does their model
+
+#### Random Forest Regression
+
 ### Performance metrics - accuracy, precision, recall, F-score etc.
 Everyone explains their model
 ## Results
