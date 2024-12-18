@@ -149,6 +149,7 @@ Ayo
 - Number of trees (n_estimators): Determines the size of the forest.
 - Maximum depth (max_depth): Limits the depth of each tree to prevent overfitting.
 - Minimum samples per leaf (min_samples_leaf): Ensures each leaf node represents sufficient data.
+- 
 
 ##### Training/Test/Cross-Validation Split:
 - Data was split into training (80%) and testing (20%) sets.
@@ -169,14 +170,19 @@ Ayo
 These factors collectively ensured a comprehensive evaluation of the machine learning algorithms and the refinement of the sentiment analysis pipeline.
 
 ### Experiment process
-Everyone does their model
+# Everyone does their model
 
 #### Random Forest Regression
 
 The experiment process for the Random Forest model entailed creating a binary target variable from the ratings field, processing the relevent feature columns (text and title), aggregating the data together, defining the classifier and pipeline, splitting the dataset for training/test/cross-validation, training the model, making predictions using the model and then finally evaluating the model's performance against specified metrics.
 
+#### Naive Bayes
+
+The experiment process for the Naive Bayes model involved tokenizing, vectorizing, and merging the text and title fields. The data was then split into training and testing sets. The model was trained on the training set and evaluated on the test set using accuracy, precision, recall, F1 score, and AUC metrics.
+
+
 ### Performance metrics - accuracy, precision, recall, F-score etc.
-Everyone explains their model
+# Everyone explains their model
 
 #### Random Forest Regression
 
@@ -188,6 +194,14 @@ Test Accuracy: 0.8917525773195877
 Test Precision: 0.7952226591561271
 Test Recall: 0.8917525773195877
 Test F1 Score: 0.8407258630860418
+```
+
+#### Naive Bayes
+
+Below are the performance metrics for the Naive Bayes mode:
+
+```
+
 ```
 
 ## Results
