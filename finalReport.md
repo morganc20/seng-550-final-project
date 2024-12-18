@@ -23,7 +23,24 @@ What is the problem?
 Why is problem important?
 
 ### What have others done in the space?
-Carter
+Sentiment analysis is a well-researched area within machine learning, particularly in natural language processing (NLP). Researchers have utilized various methodologies, including traditional machine learning models and deep learning approaches. Commonly used techniques include:
+
+##### 1. Text Preprocessing:
+- Techniques like tokenization, stop-word removal, stemming, and lemmatization are standard to clean and prepare textual data.
+##### 2. Feature Extraction:
+- Bag-of-Words (BoW) or TF-IDF (Term Frequency-Inverse Document Frequency) representations.
+- Word embeddings, such as Word2Vec or GloVe, to capture semantic meaning in text.
+- Pre-trained transformer-based models like BERT and GPT, which provide contextualized embeddings for superior performance.
+##### 3. Machine Learning Models:
+- Classical algorithms such as Naive Bayes, Support Vector Machines (SVM), and Logistic Regression for text classification.
+- Ensemble methods like Random Forest and Gradient Boosting to improve prediction robustness.
+- Deep learning architectures such as Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs) for capturing complex patterns in text.
+##### 4. Datasets:
+- The Amazon Reviews dataset, Yelp reviews, and IMDB datasets are widely used benchmarks.
+##### 5. Evaluation Metrics:
+- Accuracy, precision, recall, F1 score, and AUC are used to measure the effectiveness of sentiment classification models.
+
+Despite these advances, challenges such as overfitting, handling imbalanced datasets, and integrating auxiliary features for enhanced interpretability remain key areas of focus.
 
 ### What are some existing gaps that you seek to fill?
 
@@ -105,8 +122,34 @@ In the Random Forest Regression model, the feature space was refined to off the 
 ### Experiment setup
 Ayo
 
-### Experimentation factors (e.g., types of ML algorithms used, hyperparameters tuned, details on training/test/cross-validation data set etc.)
-Carter
+### Experimentation factors
+##### Algorithms Used:
+- Random Forest Regression was selected for its robustness and ability to handle feature interactions effectively.
+- # add other algos once done
+
+##### Hyperparameters Tuned:
+- Number of trees (n_estimators): Determines the size of the forest.
+- Maximum depth (max_depth): Limits the depth of each tree to prevent overfitting.
+- Minimum samples per leaf (min_samples_leaf): Ensures each leaf node represents sufficient data.
+
+##### Training/Test/Cross-Validation Split:
+- Data was split into training (80%) and testing (20%) sets.
+- Cross-validation was applied to assess model performance across different data partitions.
+
+##### Feature Space Refinement:
+- The text and title fields were tokenized and transformed into numerical vectors using vectorization techniques.
+- Common words were filtered out to enhance the relevance of features.
+- The resulting feature vectors were merged to create the final input for the model.
+- The rating field was transformed into a binary classification label.
+
+##### Evaluation Metrics:
+- Accuracy, precision, recall, F1 score, and AUC were calculated to measure the model's effectiveness in sentiment classification.
+
+##### Infrastructure:
+- Cloud storage (Amazon S3) was used to manage the large-scale Amazon Reviews dataset. This enabled efficient loading and experimentation with high-volume data.
+
+These factors collectively ensured a comprehensive evaluation of the machine learning algorithms and the refinement of the sentiment analysis pipeline.
+
 ### Experiment process
 Everyone does their model
 
