@@ -142,7 +142,8 @@ Ayo
 ### Experimentation factors
 ##### Algorithms Used:
 - Random Forest Regression was selected for its robustness and ability to handle feature interactions effectively.
-- # add other algos once done
+- Naive Bayes was chosen for its simplicity, efficiency, and effectiveness with text classification tasks.
+# - add other algos once done
 
 ##### Hyperparameters Tuned:
 - Number of trees (n_estimators): Determines the size of the forest.
