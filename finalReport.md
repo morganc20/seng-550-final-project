@@ -57,7 +57,7 @@ Ayo
 Max
 
 ### Main Findings
-Everyone explain the findings of their model.
+# Everyone explain the findings of their model.
 
 We are proposing a multi-model solution, where we each will select a machine learning classification model and compare them against each other to see which is the most effective algorithm. 
 
@@ -77,6 +77,19 @@ Cons:
 - Not ideal for small datasets
 - High memory usage
 
+#### Naive Bayes
+
+Naive Bayes is a probabilistic classifier that uses Bayes theorem to predict the probability of a given class. It assumes that the features are independent of one another.
+
+Pros:
+- Simple and easy to implement
+- Efficient for large datasets
+- Works well with categorical data
+
+Cons:
+- Strong independence assumptions
+- Can be inaccurate if independence assumptions are violated
+- Limited expressiveness
 
 ## Methodology
 
@@ -113,11 +126,15 @@ Additionally, each review follows the following object structure:
 }
 ```
 
-Everyone explain how they refined feature space for their model
+# Everyone explain how they refined feature space for their model
 
 #### Random Forest Regression
 
 In the Random Forest Regression model, the feature space was refined to off the text and title fields, and used the rating field as a binary target variable (label). With regard to the text and title fields, each field was tokenized, common words were filtered out of the data and the resulting words were mapped in numerical vectors based off of importance. The end results of both fields were then merged together and used in the model.
+
+#### Naive Bayes
+
+In the Naive Bayes model, the feature space was refined to include the title and text fields. The text and title fields were tokenized and transformed into numerical vectors using vectorization techniques. Common words were filtered out to enhance the relevance of features. The resulting feature vectors were merged to create the final input for the model.
 
 ### Experiment setup
 Ayo
