@@ -1,7 +1,5 @@
 # seng-550-final-project
 
-# seng-550-final-project
-
 | Name            | UCID     |
 |-----------------|----------|
 | Morgan Chen     | 30116461 |
