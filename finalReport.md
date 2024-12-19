@@ -18,9 +18,9 @@ Contribution:
 ## Abstract
 ### Introduction
 ### Problem
-The core problem we are addressing in this work is the automated identification and classification of sentiment within large-scale textual review data. Sentiment analysis, specifically binary classification into positive and negative sentiment, remains a fundamental challenge in natural language processing (NLP). In the context of massive online marketplaces, such as Amazon, the sheer volume, velocity, and variety of textual content—ranging from brief, informal comments to detailed, domain-specific critiques—poses a formidable challenge. Extracting sentiment reliably from this noisy and diverse textual input requires robust, scalable, and extensible machine learning frameworks.
+The core problem we are addressing in our final project is the automated identification and classification of sentiment within large-scale textual review data. Sentiment analysis, specifically binary classification into positive and negative sentiment, remains a fundamental challenge in natural language processing (NLP). In the context of massive online marketplaces, such as Amazon, the sheer volume, velocity, and variety of textual content—ranging from brief, informal comments to detailed, domain-specific critiques—poses a formidable challenge. Extracting sentiment reliably from this noisy and diverse textual input requires robust, scalable, and extensible machine learning frameworks.
 
-Understanding customer sentiment is a critical component of maintaining a competitive edge in any consumer-driven ecosystem. For a platform hosting millions of product reviews like Amazon, accurate sentiment analysis can inform product recommendation systems, pricing strategies, inventory management, and targeted marketing. Positive sentiments correlate with consumer satisfaction, loyalty, and long-term brand health, while negative sentiments often highlight customer pain points, product flaws, and opportunities for improvement. The ability to automatically and effectively gauge sentiment at scale offers significant time and cost savings by reducing the burden on human reviewers, enabling real-time customer feedback loops, and ultimately improving the quality of goods and services offered. Thus, solving this problem transcends mere classification—it empowers businesses, researchers, and stakeholders to make more informed, data-driven decisions, thereby enhancing both user experience and marketplace efficiency.
+Understanding customer sentiment is a critical component of maintaining a competitive edge in any consumer-driven ecosystem. For a platform hosting millions of product reviews like Amazon, accurate sentiment analysis can inform product recommendation systems, pricing strategies, inventory management, and targeted marketing. Positive sentiments correlate with consumer satisfaction, loyalty, and long-term brand health, while negative sentiments often highlight customer pain points, product flaws, and opportunities for improvement. The ability to automatically and effectively gauge sentiment at scale offers significant time and cost savings by reducing the burden on human reviewers, enabling real-time customer feedback loops, and ultimately improving the quality of goods and services offered. Thus, solving this problem is not only classification—it empowers businesses, researchers, and stakeholders to make more informed, data-driven decisions.
 
 ### What have others done in the space?
 Sentiment analysis is a well-researched area within machine learning, particularly in natural language processing (NLP). Researchers have utilized various methodologies, including traditional machine learning models and deep learning approaches. Commonly used techniques include:
@@ -54,11 +54,8 @@ Our multi-algorithm solution is evaluated against rigorous performance metrics t
 Ayo
 
 ### What are you proposing?
-We propose a multi-model machine learning pipeline that:
-- Combines multiple algorithms (e.g., Naive Bayes, Random Forest, Logistic Regression, Transformer-based models) to enhance robustness and accuracy.
-- Integrates text preprocessing, feature engineering, and auxiliary metadata for richer representations.
-- Ensures extensibility and reproducibility, allowing for continuous improvement and adaptation to new data.
-- Validates performance using rigorous metrics (accuracy, precision, recall, F1, AUC) and cross-validation.
+We propose to build and test 4 different machine learning models for sentiment analysis on amazon reviews. Each model will integrate text preprocessing and feature engineering. We will validate the performance of each model using rigorous metrics including accuracy, precision, recall, F1 and AUC. At the end of this report we hope to determine the model most effective for sentiment analysis on Amazon reviews. We will use source our data from an Amazon S3 bucket and transfer the data to the model using Spark.
+
 
 
 ### Main Findings
@@ -95,6 +92,20 @@ Cons:
 - Strong independence assumptions
 - Can be inaccurate if independence assumptions are violated
 - Limited expressiveness
+
+#### Logistic Regression
+
+Logistic Regression is a supervised classification algorithm used to estimate the probability of a binary outcome. It predicts the likelihood that a given input belongs to one class versus another using the logistic function (sigmoid) to transform linear combinations of features into probabilities between 0 and 1.
+
+**Pros:**
+- Interpretable coefficients and model structure
+- Fast and efficient training
+- Performs well with high-dimensional data after proper regularization
+
+**Cons:**
+- Assumes a linear relationship between features and the log-odds of the outcome
+- May underperform when relationships are highly non-linear
+- Sensitive to imbalanced datasets without class-weight adjustments or data balancing
 
 ## Methodology
 
@@ -141,6 +152,9 @@ In the Random Forest Regression model, the feature space was refined to off the 
 
 In the Naive Bayes model, the feature space was refined to include the title and text fields. The text and title fields were tokenized and transformed into numerical vectors using vectorization techniques. Common words were filtered out to enhance the relevance of features. The resulting feature vectors were merged to create the final input for the model.
 
+#### Logistic Regression
+In the Logistic Regression model, the feature space was refined to include both the `text` and `title` fields. The text and title fields were tokenized, stop words were removed and vectorized using TF-IDF after hashing with 10,000 features (5,000 feature hash for the title). The features `title` and `text` were combined using `VectorAssembler` into a single feature vector(`assembled_features`).
+
 ### Experiment setup
 Ayo
 
@@ -148,18 +162,15 @@ Ayo
 ##### Algorithms Used:
 - Random Forest Regression was selected for its robustness and ability to handle feature interactions effectively.
 - Naive Bayes was chosen for its simplicity, efficiency, and effectiveness with text classification tasks.
-- **Logistic Regression:**  
-  Refined the feature space by:
-  - Tokenizing and cleaning the text and title fields.
-  - Removing stop-words to reduce noise.
-  - Applying TF-IDF vectorization to emphasize important terms and diminish common, uninformative words.  
-  This approach yielded a lean yet expressive feature set that improved the model’s ability to differentiate sentiment patterns.
+- Logistic Regression was selected for it's simplicity and effectiveness with text classification tasks.
+
 # - add other algos once done
 
 ##### Hyperparameters Tuned:
 - Number of trees (n_estimators): Determines the size of the forest.
 - Maximum depth (max_depth): Limits the depth of each tree to prevent overfitting.
 - Minimum samples per leaf (min_samples_leaf): Ensures each leaf node represents sufficient data.
+- 
 - **Logistic Regression:**  
   We tuned:
   - **Regularization parameter (C):** Adjusting `C` allowed control over complexity to prevent overfitting in the high-dimensional TF-IDF space.
@@ -172,7 +183,7 @@ Ayo
 
 ##### Feature Space Refinement:
 - The text and title fields were tokenized and transformed into numerical vectors using vectorization techniques.
-- Common words were filtered out to enhance the relevance of features.
+- Common words (stop words) were filtered out to enhance the relevance of features.
 - The resulting feature vectors were merged to create the final input for the model.
 - The rating field was transformed into a binary classification label.
 
@@ -196,12 +207,9 @@ The experiment process for the Random Forest model entailed creating a binary ta
 The experiment process for the Naive Bayes model involved tokenizing, vectorizing, and merging the text and title fields. The data was then split into training and testing sets. The model was trained on the training set and evaluated on the test set using accuracy, precision, recall, F1 score, and AUC metrics.
 
 #### Logistic Regression
-- **Logistic Regression:**  
-  1. Extracted and refined features from text and title using TF-IDF.
-  2. Conducted train/test splits and cross-validation to ensure robust performance.
-  3. Iteratively adjusted tokenization and stop-word filtering strategies.
-  4. Tuned regularization to balance generalization and complexity.
-  Through systematic iteration, we arrived at a stable configuration that improved predictive power.
+
+The experiment process for Logistic Regression involved, tokenizing, vectorizing, and merging the text and title fields. The data was then split ito train and test splits. The model was trained on the training set and evaluated on the test set using accuracy, precision, recall, F1 score, and AUC metrics.
+
 
 
 ### Performance metrics - accuracy, precision, recall, F-score etc.
@@ -239,14 +247,7 @@ These metrics indicate that the refined TF-IDF feature space, coupled with caref
 
 ## Results
 ### Key findings in your exploratory data analysis and prediction. If you are trying out multiple algorithms, your results will compare them. How did you diagnose your ML model?
-**Key Findings:**
-- Large, diverse data required robust preprocessing and feature extraction.
-- Integrating both text and title fields improved model performance.
-- Logistic Regression provided a solid baseline; Random Forest achieved high accuracy; Naive Bayes was efficient but less robust; Transformer-based models performed best overall.
+The key finding from our exploration of different models found that the Transformer-based model performed the best overall. 
 
-**Model Diagnosis:**
-- Used accuracy, precision, recall, F1, AUC, and confusion matrices to identify strengths and weaknesses.
-- Hyperparameter tuning and feature refinement incrementally improved results.
-- Iterative analysis and error inspection guided enhancements in model design and feature selection.
 ### Conclusions 
 Ayo
