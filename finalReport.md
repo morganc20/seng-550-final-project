@@ -339,22 +339,24 @@ Test F1 Score: 0.8585264513630095
 #### Logistic Regression
 
 After refining features and tuning parameters:
-
+```
 - AUC: 0.7345
 - Accuracy: 0.8333
 - Precision: 0.8372
 - Recall: 0.8333
 - F1: 0.8352
-
+```
 These metrics indicate that the refined TF-IDF feature space, coupled with careful hyperparameter tuning, produced a solid baseline model for sentiment classification.
 
 ### BERT-Based Sentiment Classifier
 
+```
 - AUC: 0.9300
 - Accuracy: 0.9300
 - Precision: 0.9593
 - Recall: 0.9593
 - F1 Score: 0.9593
+```
 
 ## Results
 
