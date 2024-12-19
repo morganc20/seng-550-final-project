@@ -166,12 +166,13 @@ Ayo
 
 # - add other algos once done
 
-##### Hyperparameters Tuned:
+#### Hyperparameters Tuned:
+**Random Forest**
 - Number of trees (n_estimators): Determines the size of the forest.
 - Maximum depth (max_depth): Limits the depth of each tree to prevent overfitting.
 - Minimum samples per leaf (min_samples_leaf): Ensures each leaf node represents sufficient data.
-- 
-- **Logistic Regression:**  
+
+**Logistic Regression:**  
   We tuned:
   - **Regularization parameter (C):** Adjusting `C` allowed control over complexity to prevent overfitting in the high-dimensional TF-IDF space.
   - **Max iterations:** Ensured proper convergence, especially when dealing with large and sparse TF-IDF vectors.
