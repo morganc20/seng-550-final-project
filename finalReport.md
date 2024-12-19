@@ -329,7 +329,11 @@ Test F1 Score: 0.8407258630860418
 Below are the performance metrics for the Naive Bayes mode:
 
 ```
-
+Test AUC: 0.49456042340488093
+Test Accuracy: 0.8434343434343434
+Test Precision: 0.879016354016354
+Test Recall: 0.8434343434343434
+Test F1 Score: 0.8585264513630095
 ```
 
 #### Logistic Regression
