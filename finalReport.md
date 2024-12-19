@@ -4,16 +4,16 @@
 ### Description of team member contribution
 
 Contribution:
-*Morgan - 25%*
+*Morgan Chen (30116461) - 25%*
 
 Contribution:
-*Ayo - 25%*
+*Ayo Olabode (30114584) - 25%*
 
 Contribution:
-*Carter - 25%*
+*Carter Boucher (30116690)- 25%*
 
 Contribution:
-*Max - 25%*
+*Maxwell Couture (30113939) - 25%*
 
 ## Abstract
 ### Introduction
